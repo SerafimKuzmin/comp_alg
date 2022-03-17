@@ -9,7 +9,7 @@
 
 const int dataSize = 5;
 double initData[dataSize][dataSize][dataSize];
-const std::vector <int> args = { 0, 1, 2, 3, 4 };
+const std::vector <double> args = { 0, 1, 2, 3, 4 };
 
 
 const int EPS = 1e-8;

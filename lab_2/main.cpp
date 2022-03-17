@@ -10,7 +10,7 @@ using namespace std;
 
 void readData()
 {
-    ifstream fin ("/home/serafim/Рабочий стол/comp_alg/lab_1/initData.txt");
+    ifstream fin ("/home/serafim/Рабочий стол/comp_alg/lab_2/initData.txt");
     if (fin.is_open()) {
         for (int k = 0; k < dataSize; ++k) {
             for (int i = 0; i < dataSize; ++i) {
@@ -52,7 +52,7 @@ vector <vector <double> > getTableOfSepDiff(vector <int> argInds, vector <double
         vector <double> curLine, prevLine = tableOfSepDiff[i - 1];
         for (int j = 0; j < prevLine.size() - 1; ++j)
         {
-            double xDiff = 1.0;
+            double xDiff = argInds[i + j] - argInds[j];
             curLine.push_back((prevLine[j + 1] - prevLine[j]) / xDiff);
         }
         tableOfSepDiff.push_back(curLine);
@@ -149,9 +149,11 @@ int main()
     int nx = 3, ny = 3, nz = 3;
     double x, y, z;
 
-    cout << endl << "Введите точку, в которой нужно найти значение (x, y, z)" << endl;
-    cin >> x >> y >> z;
-    cout << getValueOfThree(x, y, z, nx, ny, nz) << endl;
+    while (true) {
+        cout << endl << "Введите точку, в которой нужно найти значение (x, y, z)" << endl;
+        cin >> x >> y >> z;
+        cout << getValueOfThree(x, y, z, nx, ny, nz) << endl;
+    }
 
     return 0;
 }
